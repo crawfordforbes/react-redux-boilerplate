@@ -6,7 +6,6 @@ class Nav extends Component {
 
 	}
 	render() {
-		console.log(this)
 		return(
 			<div>
 				<ul className="nav">
@@ -17,5 +16,7 @@ class Nav extends Component {
 		)
 	}
 }
-
+Nav.propTypes = {
+	changeView: PropTypes.func.isRequired
+}
 export default Nav

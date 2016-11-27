@@ -8,22 +8,24 @@ import * as OtherActions from '../actions/index'
 
 class App extends Component {
 	render() {
-		const {view, actions} = this.props
+		const {actions, data, meta} = this.props
 		return (
 			<div>
-				<Body view={view} actions={actions} />
+				<Body actions={actions} data={data} meta={meta}/>
 			</div>)
 	}
 }
 
 App.propTypes = {
 	actions: PropTypes.object.isRequired,
-  view: PropTypes.string.isRequired
+  meta: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired
 }
 
 function mapStateToProps(state) {
 	return {
-		view: state.view
+		meta: state.meta,
+		data: state.data
 	}
 }
 

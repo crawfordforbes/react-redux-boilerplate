@@ -9,7 +9,7 @@ class Body extends Component {
     super(props, context)
   }
   changeView(e){
-    this.props.actions.updateView(e.target.id)
+    this.props.actions.updateMeta("view", e.target.id)
   }
   
   componentDidMount(){
@@ -17,8 +17,9 @@ class Body extends Component {
   }
 
   render() {
+  	console.log(this)
     let view;
-    switch (this.props.view) {
+    switch (this.props.meta.view) {
       case "home":
         view = <Home />
         break;
@@ -45,7 +46,8 @@ class Body extends Component {
 }
 
 Body.propTypes = {
-  view: PropTypes.string.isRequired,
+  meta: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 }
 

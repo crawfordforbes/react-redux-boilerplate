@@ -1,13 +1,15 @@
-import {UPDATE_VIEW} from '../constants/ActionTypes'
-const initialState = {
-	view: "home"
-
+import {UPDATE_DATA} from '../constants/ActionTypes'
+const data = {
+	
 };
-export default (state = initialState, action) => {
+export default (state = data, action) => {
 	switch(action.type) {
-		case UPDATE_VIEW:
-			return Object.assign({}, state, {view: action.view})
+		case UPDATE_DATA:
 
+			let updateDataState = state
+			updateDataState[action.key] = action.value
+			return Object.assign({}, state, updateDataState)
+			break;
 
 
 		default:
