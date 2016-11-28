@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import Nav from './Nav'
-import Home from './Home'
 import ViewOne from './ViewOne'
 import ViewTwo from './ViewTwo'
 
@@ -13,16 +12,14 @@ class Body extends Component {
   }
   
   componentDidMount(){
-
+  	//make initial ajax call here
+  	//this.props.actions.getDataAjax(url)
   }
 
   render() {
   	console.log(this)
     let view;
     switch (this.props.meta.view) {
-      case "home":
-        view = <Home />
-        break;
       case "viewOne":
         view = <ViewOne />
         break;
@@ -30,7 +27,7 @@ class Body extends Component {
         view = <ViewTwo />
         break;
       default:
-        view = <Home />
+        view = <ViewOne />
     }
     return (
 			<div>

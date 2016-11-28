@@ -1,6 +1,7 @@
 import {UPDATE_META} from '../constants/ActionTypes'
 const meta = {
-	view: "home"
+	view: "viewOne",
+	loading: "false"
 };
 export default (state = meta, action) => {
 	switch(action.type) {

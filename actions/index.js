@@ -4,23 +4,21 @@ export function updateMeta(key, value){
   return {type: types.UPDATE_META, key, value}
 }
 
-export function updateData(key, value){
-	return {type: types.UPDATE_DATA, key, value}
+export function updateData(value){
+	return {type: types.UPDATE_DATA, value}
 }
 
-export function getData(argument){
+export function getDataAjax(url){
 	return function(dispatch){
 		dispatch(updateMeta("loading", true))
 		return $.ajax({
-	        type: "POST",
-	        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-	        url: "",
-	        data: argument,
-	        dataType: "json",
-	        success: function(data){
-	        	dispatch(updateData("data", data))
-	        	dispatch(updateMeta("loading", false))
-	        }
-	    });
+      type: "GET",
+      url: url,
+      dataType: "json",
+      success: function(data){
+      	dispatch(updateData(data))
+      	dispatch(updateMeta("loading", false))
+      }
+    });
 	}
 }
