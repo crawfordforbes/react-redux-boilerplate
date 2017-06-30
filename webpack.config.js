@@ -1,5 +1,5 @@
 var path = require("path");
-// require("./styles/app.less");
+
 module.exports = {
   entry: [
     './index.js',
